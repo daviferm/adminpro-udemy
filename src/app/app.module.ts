@@ -10,7 +10,7 @@ import { NopagesfoundComponent } from './nopagesfound/nopagesfound.component';
 @NgModule({
   declarations: [
     AppComponent,
-    NopagesfoundComponent,
+    NopagesfoundComponent
   ],
   imports: [
     BrowserModule,
