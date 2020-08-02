@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
+import { SettingsService } from '../services/settings.service';
+
+// tslint:disable-next-line: typedef
+declare function customInitFunctions();
 
 @Component({
   selector: 'app-pages',
@@ -8,9 +12,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagesComponent implements OnInit {
 
-  constructor() { }
+
+  constructor( private settingsServices: SettingsService ) { }
 
   ngOnInit(): void {
+      customInitFunctions();
   }
 
 }
