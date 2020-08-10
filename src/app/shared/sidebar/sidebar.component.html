@@ -10,9 +10,9 @@
                 <li class="user-profile">
                     <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><img src="./assets/images/users/profile.png" alt="user" /><span class="hide-menu">Steave Jobs </span></a>
                     <ul aria-expanded="false" class="collapse">
-                        <li class="pointer" routerLink="['/dashboard']"><a>My Profile </a></li>
-                        <li class="pointer" routerLink="['/dashboard']"><a>My Balance</a></li>
-                        <li class="pointer" routerLink="['/dashboard']"><a>Inbox</a></li>
+                        <li class="pointer"><a>My Profile </a></li>
+                        <li class="pointer"><a>My Balance</a></li>
+                        <li class="pointer"><a>Inbox</a></li>
                         <li class="pointer" [routerLink]="['account-setting']"><a>Account Setting</a></li>
                         <li class="pointer" [routerLink]="['/login']"><a>Logout</a></li>
                     </ul>
@@ -32,7 +32,7 @@
                     </a>
                     <ul aria-expanded="false" class="collapse">
                         <li *ngFor="let submenu of menu.submenu">
-                            <a [routerLink]="submenu.url"> {{ submenu.titulo }}  </a>
+                            <a [routerLink]="submenu.url" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"> {{ submenu.titulo }}  </a>
                         </li>
 
                     </ul>
