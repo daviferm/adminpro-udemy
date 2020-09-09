@@ -14,7 +14,7 @@
                         <li class="pointer"><a>My Balance</a></li>
                         <li class="pointer"><a>Inbox</a></li>
                         <li class="pointer" [routerLink]="['account-setting']"><a>Account Setting</a></li>
-                        <li class="pointer" [routerLink]="['/login']"><a>Logout</a></li>
+                        <li class="pointer" (click)="logOut()"><a>Logout</a></li>
                     </ul>
                 </li>
                 <li class="nav-devider"></li>
