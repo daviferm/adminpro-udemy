@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { AppComponent } from './app.component';
 import { NopagesfoundComponent } from './nopagesfound/nopagesfound.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

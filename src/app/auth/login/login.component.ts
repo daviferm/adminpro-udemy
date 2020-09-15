@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
 
   public loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', Validators.required],
+    password: ['123456', Validators.required],
     recuerdame: false
   });
 
@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     if ( localStorage.getItem('adminpro-email') ) {
       this.loginForm.setValue({
         email: localStorage.getItem('adminpro-email'),
-        password: '',
+        password: '123456',
         recuerdame: true
       });
     }
@@ -96,7 +96,7 @@ export class LoginComponent implements OnInit {
           this.usuarioService.loginGoogle( id_token )
             .subscribe( resp => {
               // navegar al dashboard
-              this.ngZone.run( () => this.router.navigateByUrl('/') );
+              this.ngZone.run( () => this.router.navigateByUrl('/dashboard') );
             } );
 
 
