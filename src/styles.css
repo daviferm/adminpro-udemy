@@ -19,3 +19,27 @@
     height: 200px;
     margin: 1rem;
 }
+
+.w100 {
+    width: 100px;
+}
+
+.w140 {
+    width: 140px;
+}
+
+.w50 {
+    width: 35px;
+    margin: 0px;
+    border-radius: 50%;
+}
+
+.modal {
+    display: block;
+    background-color: rgba(0, 0, 0, .4);
+    z-index: 9999;
+}
+
+.oculto {
+    display: none;
+}

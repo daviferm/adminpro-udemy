@@ -15,11 +15,11 @@ export class UsuarioModel {
 
     get ImagenUrl(): string {
 
-        if ( this.img && this.img.startsWith('http') ) {
+        if ( !this.img ) {
+            return `${base_url}/upload/usuarios/no-image`;
+        } else if ( this.img.startsWith('http') ) {
             return this.img;
-        }
-
-        if ( this.img ) {
+        } else if ( this.img ) {
             return `${base_url}/upload/usuarios/${this.img}`;
         } else {
             return `${base_url}/upload/usuarios/no-image`;

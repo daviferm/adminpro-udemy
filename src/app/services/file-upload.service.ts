@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { UsuarioModel } from '../models/usuario.model';
 
 
 const base_url = environment.base_url;
@@ -14,7 +13,7 @@ export class FileUploadService {
 
   async actualizarFoto(
     archivo: File,
-    tipo: 'usuarios'|'medicos'|'hospitales',
+    tipo: string,
     id: string
   ) {
 

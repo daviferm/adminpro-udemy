@@ -1,0 +1,24 @@
+<!-- MODAL CARGA IMAGENES -->
+<div class="modal fade show animated fadeIn fast" (click)="ocultalModalImg( $event )" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" [class.oculto]="modalImgService.ocultarModal">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="exampleModalLabel1">Cargar imagen</h4>
+                <button (click)="cerrarModal()" type="button" class="close pointer" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <h3>Selección de imagen</h3>
+                <div class="imagen-container">
+                    <img *ngIf="!imagenTem" [src]="modalImgService.img" class="img-avatar">
+                    <img *ngIf="imagenTem" [src]="imagenTem" class="img-avatar">
+                </div>
+                <input type="file" (change)="seleccionarImagen($event.target.files[0])">
+
+            </div>
+            <div class="modal-footer">
+                <button (click)="cerrarModal()" type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" [disabled]="!imagenTem" (click)="subirImagen()" class="btn btn-primary">Cargar Imagen</button>
+            </div>
+        </div>
+    </div>
+</div>

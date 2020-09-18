@@ -16,7 +16,7 @@
                         <label for="exampleInputEmail1">Email</label>
                         <div class="input-group">
                             <div class="input-group-addon"><i class="ti-email"></i></div>
-                            <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email" [placeholder]="'Correo electronico'">
+                            <input type="email" [readOnly]="usuario.google" class="form-control" id="exampleInputEmail1" formControlName="email" [placeholder]="'Correo electronico'">
                         </div>
                     </div>
                     <button type="submit" [disabled]="perfilForm.value.nombre === usuario.nombre && perfilForm.value.email === usuario.email" class="btn btn-success btn-block waves-effect waves-light m-r-10">
