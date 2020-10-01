@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 
 import { RegisterForm } from '../interfaces/register-form.interface';
 import { LoginForm } from '../interfaces/login-form.interface';
-import { CargarUsuarios } from '../interfaces/cargar-usuarios.intergace';
+import { CargarUsuarios } from '../interfaces/cargar-usuarios.interface';
 
 import { environment } from '../../environments/environment.prod';
 import { tap, map, catchError } from 'rxjs/operators';
@@ -81,7 +81,6 @@ export class UsuarioService {
         map( (resp: any) => {
           const { nombre, email, img = '', google, role, uid } = resp.usuario;
           this.usuario = new UsuarioModel( nombre, email, '', img, google, role, uid, );
-          console.log(this.usuario);
           localStorage.setItem('x-token', resp.token);
           return true;
         } ),
@@ -122,13 +121,8 @@ export class UsuarioService {
             usuarios
           };
         } )
-      )
+      );
   }
-
-  // getImgenUsuario( id: string ): any {
-
-  //   return this.http.get( `${base_url}/upload/usuarios/${id}`, this.headers );
-  // }
 
   borrarUsuario( id: string ): any {
 

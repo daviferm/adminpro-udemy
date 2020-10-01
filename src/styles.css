@@ -28,10 +28,25 @@
     width: 140px;
 }
 
+.w200 {
+    width: 200px;
+}
+
+.w300 {
+    width: 300px;
+}
+
 .w50 {
     width: 35px;
     margin: 0px;
     border-radius: 50%;
+}
+
+.w55 {
+    width: 50px;
+    height: 40px;
+    margin: 0px;
+    border-radius: 2px;
 }
 
 .modal {

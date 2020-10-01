@@ -5,20 +5,24 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Rutas
+import { PagesComponent } from './pages.component';
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProgressComponent } from './progress/progress.component';
+import { PromesasComponent } from './promesas/promesas.component';
 import { Grafica1Component } from './grafica1/grafica1.component';
-import { PagesComponent } from './pages.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
+import { HospitalesComponent } from './mantenimientos/hospitales/hospitales.component';
+import { MedicosComponent } from './mantenimientos/medicos/medicos.component';
 
 // Módulos
 import { SharedModule } from '../shared/shared.module';
 import { ComponetsModule } from '../components/componets.module';
-import { AccountSettingsComponent } from './account-settings/account-settings.component';
-import { PromesasComponent } from './promesas/promesas.component';
-import { RxjsComponent } from './rxjs/rxjs.component';
-import { PerfilComponent } from './perfil/perfil.component';
-import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
-import { ImgTipoPipe } from '../pipes/img-tipo.pipe';
+
+import { PipesModule } from '../pipes/pipes.module';
+import { MedicoComponent } from './mantenimientos/medicos/medico.component';
 
 
 @NgModule({
@@ -32,7 +36,9 @@ import { ImgTipoPipe } from '../pipes/img-tipo.pipe';
     RxjsComponent,
     PerfilComponent,
     UsuariosComponent,
-    ImgTipoPipe
+    HospitalesComponent,
+    MedicosComponent,
+    MedicoComponent
   ],
   exports: [
     DashboardComponent,
@@ -47,7 +53,8 @@ import { ImgTipoPipe } from '../pipes/img-tipo.pipe';
     SharedModule,
     RouterModule,
     ComponetsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    PipesModule
   ]
 })
 export class PagesModule { }

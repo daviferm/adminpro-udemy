@@ -3,8 +3,9 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 
-import { BuscarUsuarios } from '../interfaces/cargar-usuarios.intergace';
 import { UsuarioModel } from '../models/usuario.model';
+import { HospitalModel } from '../models/hospital.model';
+import { MedicoModel } from '../models/medico.model';
 
 const base_url = environment.base_url;
 @Injectable({
@@ -25,31 +26,36 @@ export class BusquedasService {
     };
   }
 
-  private tranformarUsuarios( resultados: any[] ): UsuarioModel[]{
+  private transformarUsuarios( resultados: any[] ): UsuarioModel[]{
     return resultados.map( user => new UsuarioModel(
       user.nombre, user.email, '', user.img, user.google, user.role, user.uid ) );
   }
+  private transformarHospitales( resultados: any[] ): HospitalModel[]{
+    return resultados;
+  }
+  private transformarMedicos( resultados: any[] ): MedicoModel[]{
+    return resultados;
+  }
+
 
   buscarPorTipo(tipo: 'usuarios'|'medicos'|'hospitales', termino: string): any {
 
     const url = `${base_url}/todo/coleccion/${tipo}/${termino}`;
 
-    return this.http.get<BuscarUsuarios[]>( url, this.headers)
+    return this.http.get<any[]>( url, this.headers)
       .pipe(
         map( (resp: any) => {
+          let respuesta;
           switch ( tipo ) {
              case 'usuarios':
-                return this.tranformarUsuarios( resp.resultado );
-
+                return this.transformarUsuarios( resp.resultado );
              case 'hospitales':
-
-               break;
+                return this.transformarHospitales( resp.resultado );
              case 'medicos':
-
-               break;
+                return this.transformarMedicos( resp.resultado );
              default:
-
-               break;
+                respuesta = null;
+                break;
           }
         } )
       );

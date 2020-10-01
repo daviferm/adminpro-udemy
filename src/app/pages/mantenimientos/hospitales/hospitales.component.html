@@ -1,0 +1,69 @@
+<div class="row animated fadeIn fast">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <input #textInput (keyup)="buscarHospitales(textInput.value)" type="text" class="form-control" placeholder="Buscar Usuario" />
+            </div>
+        </div>
+    </div>
+</div>
+<div *ngIf="spinner" class="row animated fadeIn fast">
+    <div class="col-12">
+        <div class="alert alert-info text-center">
+            <h4 class="alert-heading">Cargando hospitales...</h4>
+            <i class="fa fa-spin fa-refresh fa-2x"></i>
+            <p class="mb-0">Por favor, espere</p>
+        </div>
+    </div>
+</div>
+<div *ngIf="!spinner" class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-8">
+                        <h4 class="card-title">Total Hospitales ( {{ total }} )</h4>
+                        <h6 class="card-subtitle">Hospitales registrados en mi aplicación</h6>
+                    </div>
+                    <div class="col">
+                        <div class="text-right">
+                            <button class="btn btn-primary mr-2" (click)="abrirSweetAler()">
+                                <i class="fa fa-hospital-o"></i>
+                                Crear Hospital
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="w140 text-center">Foto</th>
+                                <th>Nombre</th>
+                                <th class="text-nowrap text-center w140">Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let hospital of hospitales">
+                                <td class="imagen-container">
+                                    <img [src]="hospital.img | imgTipo:'hospitales'" class="w55 pointer" alt="hospital.nombre" (click)="abrirModalImg(hospital)">
+                                </td>
+                                <td>
+                                    <input type="text" class="form-control" placeholder="Nombre del hospital" [(ngModel)]="hospital.nombre" />
+                                </td>
+                                <td class="text-nowrap text-center">
+                                    <a class="pointer" data-toggle="tooltip" data-original-title="Guardar" (click)="guardarCambios(hospital)"> <i class="fa fa-pencil text-inverse m-r-10"></i> </a>
+                                    <a class="pointer" data-toggle="tooltip" data-original-title="Borrar" (click)="eliminarHospital(hospital)"> <i class="fa fa-close text-danger"></i> </a>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <button (click)="cambiarPagina(-5)" class="btn btn-secondary ml-2">Anterior</button>
+                <button (click)="cambiarPagina(+5)" class="btn btn-secondary">Siguiente</button>
+            </div>
+        </div>
+    </div>
+</div>

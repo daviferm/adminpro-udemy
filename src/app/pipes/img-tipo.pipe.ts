@@ -12,7 +12,7 @@ export class ImgTipoPipe implements PipeTransform {
   private url: string;
   constructor( private http: HttpClient ) {}
 
-  transform(img: string, tipo: string): any {
+  transform(img: string, tipo: 'usuarios'|'hospitales'|'medicos'): any {
 
     const regTipo = tipo;
     if ( img && img.startsWith('http') ) {
@@ -30,7 +30,7 @@ export class ImgTipoPipe implements PipeTransform {
         this.url = `${base_url}/upload/medicos/${img}`;
         break;
       default:
-        this.url = null;
+        this.url = `${base_url}/upload/medicos/no-image`;
     }
 
     return this.url;

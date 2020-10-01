@@ -11,7 +11,6 @@ export class SettingsService {
 
 
   constructor() {
-    console.log('Servicio Settings');
     this.theme = localStorage.getItem('theme') || this.themeDefault;
     this.elemTheme.setAttribute('href', this.theme);
   }
