@@ -16,6 +16,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
 import { HospitalesComponent } from './mantenimientos/hospitales/hospitales.component';
 import { MedicosComponent } from './mantenimientos/medicos/medicos.component';
+import { BusquedasComponent } from './busquedas/busquedas.component';
 
 // Módulos
 import { SharedModule } from '../shared/shared.module';
@@ -38,7 +39,8 @@ import { MedicoComponent } from './mantenimientos/medicos/medico.component';
     UsuariosComponent,
     HospitalesComponent,
     MedicosComponent,
-    MedicoComponent
+    MedicoComponent,
+    BusquedasComponent
   ],
   exports: [
     DashboardComponent,

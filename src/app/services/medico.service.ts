@@ -57,7 +57,7 @@ export class MedicoService {
     const url = `${base_url}/medicos/${medico._id}`;
     return this.http.put( url, medico, this.headers)
       .pipe(
-        map( (resp: any) => resp)
+        map( (resp: any) => resp.medico)
       );
   }
   eliminarMedico( id: string ): any {

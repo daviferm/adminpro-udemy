@@ -1,6 +1,7 @@
 import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { AuthGuard } from '../guard/auth.guard';
+import { AdminGuard } from '../guard/admin.guard';
 
 import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -10,6 +11,7 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { PromesasComponent } from './promesas/promesas.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { PerfilComponent } from './perfil/perfil.component';
+import { BusquedasComponent } from './busquedas/busquedas.component';
 
 // Mantenimientos
 import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
@@ -24,16 +26,17 @@ const routes: Routes = [
         children: [
             {path: '', component: DashboardComponent, data: { titulo: 'Dashboard' }},
             {path: 'account-setting', component: AccountSettingsComponent, data: { titulo: 'Ajustes de cuenta' }},
+            {path: 'busquedas/:termino', component: BusquedasComponent, data: { titulo: 'Busquedas en la App' }},
             {path: 'grafica1', component: Grafica1Component, data: { titulo: 'Gráfica #1' }},
             {path: 'perfil', component: PerfilComponent, data: { titulo: 'Perfil de Usuario' }},
             {path: 'progress', component: ProgressComponent, data: { titulo: 'Progress' }},
             {path: 'promesas', component: PromesasComponent, data: { titulo: 'Promesas' }},
             {path: 'rxjs', component: RxjsComponent, data: { titulo: 'Rxjs' }},
             // Mantenimientos
-            {path: 'usuarios', component: UsuariosComponent, data: { titulo: 'Mantenimiento de Usuario' }},
             {path: 'hospitales', component: HospitalesComponent, data: { titulo: 'Mantenimiento de Hospitales' }},
-            {path: 'medicos', component: MedicosComponent, data: { titulo: 'Mantenimiento de Médicos' }},
             {path: 'medico/:id', component: MedicoComponent, data: { titulo: 'Mantenimiento de Médico' }},
+            {path: 'medicos', component: MedicosComponent, data: { titulo: 'Mantenimiento de Médicos' }},
+            {path: 'usuarios', component: UsuariosComponent, canActivate: [AdminGuard], data: { titulo: 'Mantenimiento de Usuario' }},
         ]},
 ];
 

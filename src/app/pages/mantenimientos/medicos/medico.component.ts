@@ -8,7 +8,6 @@ import { HospitalModel } from '../../../models/hospital.model';
 
 import { HospitalService } from '../../../services/hospital.service';
 import { MedicoService } from '../../../services/medico.service';
-import { async } from '@angular/core/testing';
 import { ModalImgService } from '../../../components/modal-img/modal-img.service';
 
 @Component({
@@ -68,6 +67,7 @@ export class MedicoComponent implements OnInit {
         }
         const { nombre, hospital: { _id } } = medico;
         this.medicoSeleccionado = medico;
+        console.log(this.medicoSeleccionado);
         this.medicoForm.setValue({ nombre, hospital: _id });
 
       } );
@@ -99,17 +99,17 @@ export class MedicoComponent implements OnInit {
         ...this.medicoForm.value,
         _id: this.medicoSeleccionado._id
       };
-      console.log(data);
       this.medicoService.actualizarMedico( data )
         .subscribe( (medico: MedicoModel) => {
           console.log(medico);
+          this.medicoSeleccionado = medico;
           Swal.fire({
             title: 'Actualizado',
             html: `<p><strong> ${ nombre } </strong> actualizado correctamente!</p>`,
             icon: 'success',
             timer: 3000
           });
-        } )
+        } );
     } else {
       // Crear
       this.medicoService.crearMedico( this.medicoForm.value )
