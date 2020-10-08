@@ -30,15 +30,10 @@ export class BusquedasComponent implements OnInit {
 
     this.busquedaService.busquedaGlobal( termino )
     .subscribe( (resp: any) => {
-      console.log(resp);
       this.usuarios   = resp.usuarios;
       this.medicos    = resp.medicos;
       this.hospitales = resp.hospitales;
     } );
-  }
-
-  abrirMedico( medico: MedicoModel ): void {
-    console.log(medico);
   }
 
 }

@@ -65,7 +65,6 @@ export class HospitalesComponent implements OnInit, OnDestroy {
   guardarCambios( hospital: HospitalModel ): void {
     this.hospitalService.actualizarHospital( hospital._id, hospital.nombre )
       .subscribe( resp => {
-        console.log(resp);
         Swal.fire({
           title: 'Actualizado',
           html: '<p>Hospital <strong>' + resp.hospital.nombre + '</strong> actualizado correctamente..</p>',
@@ -77,7 +76,6 @@ export class HospitalesComponent implements OnInit, OnDestroy {
   eliminarHospital( hospital: HospitalModel ): void {
     this.hospitalService.eliminarHospital( hospital._id )
       .subscribe( resp => {
-        console.log(resp);
         Swal.fire({
           title: 'Borrado',
           html: '<p>Hospital <strong>' + resp.hospital.nombre + '</strong> eliminado correctamente..</p>',
@@ -98,9 +96,7 @@ export class HospitalesComponent implements OnInit, OnDestroy {
       confirmButtonText: 'OK!',
       cancelButtonText: 'Cancelar'
     });
-    console.log(value);
     if (value.trim().length > 0) {
-      console.log(value);
       this.hospitalService.crearHospital( value )
         .subscribe( resp => this.cargarHospitales() );
     }

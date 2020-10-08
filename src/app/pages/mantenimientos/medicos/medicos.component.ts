@@ -55,7 +55,6 @@ export class MedicosComponent implements OnInit, OnDestroy {
       } );
   }
   eliminarMedico( medico: MedicoModel ): void {
-    console.log(medico);
     Swal.fire({
       title: 'Estás seguro?',
       html: `<p>Se eliminará <strong>${medico.nombre}</strong> de la base de datos.</p>`,
@@ -65,7 +64,6 @@ export class MedicosComponent implements OnInit, OnDestroy {
       cancelButtonText: 'Cancelar'
     }).then( (result) => {
       if ( result.isConfirmed ) {
-        console.log('Eliminar médico');
         this.medicoService.eliminarMedico( medico._id )
           .subscribe( resp => {
             Swal.fire({

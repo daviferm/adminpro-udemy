@@ -67,7 +67,6 @@ export class MedicoComponent implements OnInit {
         }
         const { nombre, hospital: { _id } } = medico;
         this.medicoSeleccionado = medico;
-        console.log(this.medicoSeleccionado);
         this.medicoForm.setValue({ nombre, hospital: _id });
 
       } );
@@ -101,7 +100,6 @@ export class MedicoComponent implements OnInit {
       };
       this.medicoService.actualizarMedico( data )
         .subscribe( (medico: MedicoModel) => {
-          console.log(medico);
           this.medicoSeleccionado = medico;
           Swal.fire({
             title: 'Actualizado',

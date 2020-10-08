@@ -95,7 +95,6 @@ export class UsuariosComponent implements OnInit, OnDestroy {
       confirmButtonText: 'Si, borrar usuario!',
       cancelButtonText: 'Cancelar'
     }).then((result) => {
-      console.log(result);
       if (result.isConfirmed) {
         this.usuarioService.borrarUsuario( usuario.uid )
           .subscribe( resp => {
@@ -114,9 +113,7 @@ export class UsuariosComponent implements OnInit, OnDestroy {
   cambiarRole( usuario: UsuarioModel ): void {
     this.usuarioService.cambiarRoleUsuario( usuario )
       .subscribe( resp => {
-        console.log(resp);
       }, err => {
-        console.log(err);
         Swal.fire('Error!', 'No se pudo actualizar el Role!', 'error');
       } );
   }
